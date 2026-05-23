@@ -1,0 +1,5 @@
+sku,product_name,sales,orders,units_sold,product_cost,amazon_fees,ad_spend,returns,stock_units,avg_daily_units,days_without_sale
+STL-BTL-1L,Steel Bottle 1L,184000,420,445,360,18500,27000,27,92,31,0
+YGA-MAT-BLK,Yoga Mat Black,96000,210,218,260,13800,6200,9,28,9,0
+LBOX-4CP,Lunch Box 4 Compartment,54000,122,128,210,9200,8400,18,180,2,4
+PHONE-STAND,Phone Stand,0,0,0,120,0,0,0,300,0,38
