@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { generateAlerts, sampleProducts, type SellerProduct } from '../lib/alerts';
 import { parseCsvText, rowsToProducts } from '../lib/csv';
+import EmailPreview from './EmailPreview';
 
 export default function CsvDashboard() {
   const [products, setProducts] = useState<SellerProduct[]>(sampleProducts);
@@ -158,6 +159,8 @@ export default function CsvDashboard() {
             </div>
           </div>
         </section>
+
+        <EmailPreview products={products} alerts={alerts} />
       </section>
     </main>
   );
