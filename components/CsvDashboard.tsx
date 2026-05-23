@@ -3,11 +3,13 @@
 import { useMemo, useState } from 'react';
 import { generateAlerts, sampleProducts, type SellerProduct } from '../lib/alerts';
 import { parseCsvText, rowsToProducts } from '../lib/csv';
+import AuthPanel from './AuthPanel';
 import EmailPreview from './EmailPreview';
 
 export default function CsvDashboard() {
   const [products, setProducts] = useState<SellerProduct[]>(sampleProducts);
   const [fileName, setFileName] = useState('Demo data');
+  const [currentSeller, setCurrentSeller] = useState('Guest seller');
   const [error, setError] = useState('');
 
   const alerts = useMemo(() => generateAlerts(products), [products]);
@@ -47,8 +49,15 @@ export default function CsvDashboard() {
             <p className="text-lg font-black tracking-tight">Checho1</p>
             <p className="text-xs text-slate-500">Amazon seller profit alerts</p>
           </div>
-          <span className="rounded-full bg-emerald-50 px-4 py-2 text-xs font-bold text-emerald-700">MVP</span>
+          <div className="flex items-center gap-3">
+            <span className="hidden text-sm font-bold text-slate-600 md:inline">{currentSeller}</span>
+            <span className="rounded-full bg-emerald-50 px-4 py-2 text-xs font-bold text-emerald-700">MVP</span>
+          </div>
         </nav>
+
+        <div className="mb-6">
+          <AuthPanel onAuth={setCurrentSeller} />
+        </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <section className="rounded-[2rem] bg-slate-950 p-7 text-white shadow-xl md:p-10">
