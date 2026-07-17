@@ -1,0 +1,64 @@
+---
+import '../styles/global.css';
+const {
+  title = 'Best Coaching in Satna for Class 6 to 12 | Udaan Classes',
+  description = 'Udaan Classes is a friendly, SEO-focused coaching institute in Satna for class 6th to 12th with foundation, board exam, doubt support and parent updates.',
+  canonical = Astro.url.pathname,
+} = Astro.props;
+const siteUrl = 'https://bestcoachingsatna.example.com';
+const canonicalUrl = new URL(canonical, siteUrl).toString();
+---
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'EducationalOrganization',
+      name: 'Udaan Classes Satna',
+      description,
+      address: { '@type': 'PostalAddress', addressLocality: 'Satna', addressRegion: 'Madhya Pradesh', addressCountry: 'IN' },
+      areaServed: 'Satna',
+      educationalLevel: 'Class 6 to 12',
+      url: siteUrl,
+      telephone: '+91-90000-00000'
+    })} />
+  </head>
+  <body>
+    <header>
+      <nav class="container nav" aria-label="Main navigation">
+        <a href="/" class="logo" aria-label="Udaan Classes home"><span class="logo-mark">UC</span><span>Udaan Classes Satna</span></a>
+        <div class="nav-links">
+          <a href="/classes/">Classes</a>
+          <a href="/about/">About</a>
+          <a href="/admissions/">Admissions</a>
+          <a href="/contact/">Contact</a>
+        </div>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer>
+      <div class="container two-col grid">
+        <div>
+          <div class="logo"><span class="logo-mark">UC</span><span>Udaan Classes Satna</span></div>
+          <p>Friendly coaching for classes 6th to 12th with strong concepts, regular tests and personal mentoring.</p>
+        </div>
+        <div>
+          <p><strong>Call:</strong> +91 90000 00000</p>
+          <p><strong>Location:</strong> Satna, Madhya Pradesh</p>
+          <p><strong>Timing:</strong> Morning and evening batches available</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
